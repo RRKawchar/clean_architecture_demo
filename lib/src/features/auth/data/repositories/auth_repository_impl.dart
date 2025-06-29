@@ -33,26 +33,26 @@ AuthRepositoryImpl(this.dio);
   @override
   Future<void> register(RegistrationEntity user) async{
 
-    final response = await dio.post(
-      ApiConstants.register,
-      data: {
-        "fullname": user.fullname,
-        "email": user.email,
-        "password": user.password,
-        "phone": user.phone,
-        "dob": user.dob,
-        "gender": user.gender,
-        "address": user.address,
-        "device_token": user.deviceToken,
-        "reset_token": user.resetToken,
-        "status": 1,
-        "image": user.image
-      }
-    );
+    try{
+      final response = await dio.post(
+          ApiConstants.register,
+          data: user.toJson()
+      );
 
-    if(response.statusCode !=200 && response.statusCode !=210){
-      throw Exception("Registration failed: ${response.data['message']}");
+      if(response.statusCode !=200 && response.statusCode !=201){
+        throw Exception("Registration failed: ${response.data['message']}");
+      }
+
+    }on DioException catch(e){
+      print("Dio Error: ${e.response?.data ?? e.message}");
+      throw Exception(e.response?.data['message'] ?? 'Registration failed');
+    }catch(e){
+
+      print("Unexpected error: $e");
+      throw Exception("Something went wrong");
     }
+
+
 
 
   }

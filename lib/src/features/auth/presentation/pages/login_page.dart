@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../controllers/login_controller.dart';
+import 'package:practice_demo01/src/core/routes/routes_name.dart';
+import '../controllers/auth_controller.dart';
 
 class LoginPage extends StatelessWidget {
   final emailController = TextEditingController();
@@ -10,9 +11,17 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.find<LoginController>();
+    final controller = Get.find<AuthController>();
+
+    final arg=Get.arguments;
+    if(arg !=null && arg is Map){
+      emailController.text=arg['email']??"";
+      passwordController.text=arg['password']??"";
+    }
+
+
     return Scaffold(
-      appBar: AppBar(title: Text('Admin Login')),
+      appBar: AppBar(title: Text('Login')),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Obx(
@@ -45,6 +54,21 @@ class LoginPage extends StatelessWidget {
                     },
                     child: Text('Login'),
                   ),
+
+              SizedBox(height: 20),
+              Row(
+                children: [
+                  Text("Don't have any account"),
+                  SizedBox(width: 8),
+                  InkWell(
+
+                    onTap: (){
+                      Get.offAllNamed(RoutesName.registerPage);
+                    },
+
+                      child: Text("Register",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20,color: Colors.green),)),
+                ],
+              )
             ],
           ),
         ),

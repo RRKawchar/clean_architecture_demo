@@ -21,10 +21,3 @@ class AuthResponse extends LoginEntity {
 }
 
 
-// return UserModel(
-// token: json['token'],
-// message: json['message'],
-// adminId: json['admin_id'],
-// );
-
-

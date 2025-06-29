@@ -26,4 +26,18 @@ class RegistrationEntity{
     required this.image,
   });
 
+  Map<String, dynamic> toJson() => {
+    "fullname": fullname,
+    "email": email,
+    "password": password,
+    "phone": phone,
+    "dob": dob,
+    "gender": gender,
+    "address": address,
+    "device_token": deviceToken,
+    "reset_token": resetToken,
+    "status": status,
+    "image": image,
+  };
+
 }

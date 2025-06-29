@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:practice_demo01/src/core/routes/app_routes.dart';
+import 'package:practice_demo01/src/core/routes/routes_name.dart';
 import 'src/core/di/app_bindings.dart';
-import 'src/features/auth/presentation/pages/login_page.dart';
 
-void main() {
-
-
+void main()async{
+await GetStorage.init();
 
   runApp(const MyApp());
 }
@@ -13,15 +14,19 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Login Demo',
+      title: 'Clean Architecture demo',
       initialBinding: InitialBinding(),
-      home: LoginPage(),
+      getPages: AppRoutes.routes,
+      initialRoute: RoutesName.splashPage,
+     // home: LoginPage(),
     );
   }
 }
+
+
+
 
