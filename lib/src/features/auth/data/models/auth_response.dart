@@ -8,7 +8,7 @@ class AuthResponse extends LoginEntity {
   AuthResponse({
     required super.status,
     required super.message,
-    required super.userId,
+    required super.id,
     required super.fullname,
     required super.email
 

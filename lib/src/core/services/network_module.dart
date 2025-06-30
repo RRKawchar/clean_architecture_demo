@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:practice_demo01/src/core/env/env.dart';
 
 class NetworkModule {
   static Dio provideDio() {
@@ -6,7 +7,7 @@ class NetworkModule {
 
     // Optional: configure your Dio instance
     dio.options
-      ..baseUrl = 'https://api.squarelimousine.com'
+      //..baseUrl = Env.baseUrl
       ..connectTimeout = const Duration(seconds: 10)
       ..receiveTimeout = const Duration(seconds: 10)
       ..headers = {

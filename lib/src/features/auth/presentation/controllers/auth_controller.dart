@@ -36,8 +36,8 @@ class AuthController extends GetxController{
       Fluttertoast.showToast(msg:  "Login Successful");
 
       await Future.delayed(const Duration(seconds: 1));
-      Get.offAllNamed(RoutesName.homePage);
-      await LocalStorageService.instance.save(KeyManager.userId, result.userId);
+      Get.offAllNamed(RoutesName.dashBoard);
+      await LocalStorageService.instance.save(KeyManager.userId, result.id);
     } catch (e) {
       errorMessage.value = e.toString();
       Fluttertoast.showToast(msg:e.toString(),);

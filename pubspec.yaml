@@ -39,9 +39,11 @@ dependencies:
   get:
   fluttertoast:
   get_storage:
+  envied:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  envied_generator:
   build_runner:
   json_serializable:
 

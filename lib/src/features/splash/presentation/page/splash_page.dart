@@ -23,7 +23,7 @@ class SplashPage extends StatelessWidget {
     await Future.delayed(const Duration(milliseconds: 1500));
 
     if (userId != null) {
-      Get.offAllNamed(RoutesName.homePage);
+      Get.offAllNamed(RoutesName.dashBoard);
     } else {
       Get.offAllNamed(RoutesName.loginPage);
     }
