@@ -3,6 +3,7 @@ import 'package:practice_demo01/src/core/helper/helper_method.dart';
 import 'package:practice_demo01/src/features/home/data/model/product_model.dart';
 import 'package:practice_demo01/src/features/home/domain/usecases/product_usecase.dart';
 
+
 class HomeController extends GetxController{
 
   final ProductUseCase productUseCase;
@@ -11,7 +12,7 @@ class HomeController extends GetxController{
 
   var isLoading=false.obs;
 
-  var productList=<ProductModel>[].obs;
+  RxList<ProductModel> productList=<ProductModel>[].obs;
 
   @override
   void onInit() {
@@ -22,16 +23,12 @@ class HomeController extends GetxController{
 
   Future<void> getProduct()async{
     try{
-      kPrint("get all data check33 :");
       isLoading.value=true;
        var response = await productUseCase.call();
-      kPrint("get all data check33 : $response");
-       productList.value=response;
-
-
-       kPrint("get all data check : $response");
+        productList.value=response;
     } catch(e){
      kPrint("Error while fetching get product : $e");
+
     }finally{
       isLoading.value=false;
     }

@@ -6,6 +6,7 @@ import 'package:practice_demo01/src/core/helper/helper_method.dart';
 import 'package:practice_demo01/src/features/home/data/model/product_model.dart';
 import 'package:practice_demo01/src/features/home/domain/repositories/product_repository.dart';
 
+
 class ProductRepositoryImpl extends ProductRepository{
   final Dio dio;
   ProductRepositoryImpl(this.dio);
@@ -25,10 +26,10 @@ class ProductRepositoryImpl extends ProductRepository{
       kPrint("Raw API response: ${response.data.runtimeType}");
       kPrint("Raw API data: ${response.data}");
 
-      // Adjust this line based on the actual API shape
-      final List<dynamic> data = response.data; // or response.data["products"]
 
+      List data = response.data;
       return data.map((item) => ProductModel.fromJson(item)).toList();
+
     }
 
 
@@ -36,8 +37,5 @@ class ProductRepositoryImpl extends ProductRepository{
       throw Exception("Data fetch failed : ${response.statusCode}");
     }
   }
-
-
-
 
 }

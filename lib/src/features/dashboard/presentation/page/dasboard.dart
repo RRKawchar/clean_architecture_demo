@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:practice_demo01/src/features/dashboard/controller/dashboard_controller.dart';
 import 'package:practice_demo01/src/features/home/presentation/pages/home_page.dart';
+import 'package:practice_demo01/src/features/product/presentation/pages/product_page.dart';
 import 'package:practice_demo01/src/features/users/presentation/pages/users_page.dart';
 
 class DashBoard extends StatelessWidget {
@@ -9,6 +10,7 @@ class DashBoard extends StatelessWidget {
   final DashboardController controller=Get.put(DashboardController());
   final _pages=[
     HomePage(),
+    ProductsPage(),
     UsersPage()
   ];
 
@@ -27,6 +29,7 @@ class DashBoard extends StatelessWidget {
           ),
           items:[
             BottomNavigationBarItem(icon: Icon(Icons.home),label: ""),
+            BottomNavigationBarItem(icon: Icon(Icons.add_chart_rounded),label: ""),
             BottomNavigationBarItem(icon: Icon(Icons.person),label: ""),
 
           ]

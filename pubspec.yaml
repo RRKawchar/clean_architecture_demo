@@ -40,6 +40,7 @@ dependencies:
   fluttertoast:
   get_storage:
   envied:
+  equatable:
 dev_dependencies:
   flutter_test:
     sdk: flutter

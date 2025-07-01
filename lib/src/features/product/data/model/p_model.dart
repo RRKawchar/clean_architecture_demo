@@ -1,14 +1,12 @@
-import 'package:flutter/foundation.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:practice_demo01/src/features/home/data/model/p_category.dart';
 
-import 'dimensions.dart';
-import 'image_model.dart';
+import '../../../home/data/model/image_model.dart';
+import '../../../home/data/model/p_category.dart';
 
-part 'product_model.g.dart';
+part 'p_model.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class ProductModel {
+class PModel{
   final int id;
   final String name;
   final String slug;
@@ -24,9 +22,9 @@ class ProductModel {
   final String? price_html;
   final List<PCategory>? categories;
   final List<ImageModel>? images;
-  final Dimensions? dimensions;
 
-  ProductModel({
+
+  PModel({
     required this.id,
     required this.name,
     required this.slug,
@@ -42,10 +40,11 @@ class ProductModel {
     this.price_html,
     this.categories,
     this.images,
-    this.dimensions,
   });
 
-  factory ProductModel.fromJson(Map<String, dynamic> json) =>
-      _$ProductModelFromJson(json);
-  Map<String, dynamic> toJson() => _$ProductModelToJson(this);
+
+  factory PModel.fromJson(Map<String, dynamic> json) =>
+      _$PModelFromJson(json);
+  Map<String, dynamic> toJson() => _$PModelToJson(this);
+
 }

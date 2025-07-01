@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'product_model.dart';
+part of 'p_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-ProductModel _$ProductModelFromJson(Map<String, dynamic> json) => ProductModel(
+PModel _$PModelFromJson(Map<String, dynamic> json) => PModel(
   id: (json['id'] as num).toInt(),
   name: json['name'] as String,
   slug: json['slug'] as String,
@@ -26,27 +26,22 @@ ProductModel _$ProductModelFromJson(Map<String, dynamic> json) => ProductModel(
   images: (json['images'] as List<dynamic>?)
       ?.map((e) => ImageModel.fromJson(e as Map<String, dynamic>))
       .toList(),
-  dimensions: json['dimensions'] == null
-      ? null
-      : Dimensions.fromJson(json['dimensions'] as Map<String, dynamic>),
 );
 
-Map<String, dynamic> _$ProductModelToJson(ProductModel instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'name': instance.name,
-      'slug': instance.slug,
-      'permalink': instance.permalink,
-      'price': instance.price,
-      'regular_price': instance.regular_price,
-      'sale_price': instance.sale_price,
-      'on_sale': instance.on_sale,
-      'description': instance.description,
-      'short_description': instance.short_description,
-      'in_stock': instance.in_stock,
-      'total_sales': instance.total_sales,
-      'price_html': instance.price_html,
-      'categories': instance.categories?.map((e) => e.toJson()).toList(),
-      'images': instance.images?.map((e) => e.toJson()).toList(),
-      'dimensions': instance.dimensions?.toJson(),
-    };
+Map<String, dynamic> _$PModelToJson(PModel instance) => <String, dynamic>{
+  'id': instance.id,
+  'name': instance.name,
+  'slug': instance.slug,
+  'permalink': instance.permalink,
+  'price': instance.price,
+  'regular_price': instance.regular_price,
+  'sale_price': instance.sale_price,
+  'on_sale': instance.on_sale,
+  'description': instance.description,
+  'short_description': instance.short_description,
+  'in_stock': instance.in_stock,
+  'total_sales': instance.total_sales,
+  'price_html': instance.price_html,
+  'categories': instance.categories?.map((e) => e.toJson()).toList(),
+  'images': instance.images?.map((e) => e.toJson()).toList(),
+};

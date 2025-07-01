@@ -30,21 +30,26 @@ class _HomePageState extends State<HomePage> {
      const named='';
     final int dd;
     dd=0;
-    widget.logLifeCycle("Home Page");
+   widget.logLifeCycle("Home Page");
    widget.loadData();
     return Scaffold(
       appBar: AppBar(title: Text("${widget.pageTitle} page")),
       body:SafeArea(
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text(Env.baseUrl),
-              Text(Env.apiKey),
-            ],
-          ),
-        ),
+        child: Obx((){
+          return ListView.builder(
+            itemCount: homeController.productList.length,
+            itemBuilder: (context, index) {
+              final product = homeController.productList[index];
+              return ListTile(
+                title: Text(product.name),
+                subtitle: Text(product.slug),
+                leading: product.images?[0].src != null
+                    ? Image.network(product.images![0].src, width: 50, height: 50)
+                    : Icon(Icons.image_not_supported),
+              );
+            },
+          );
+        })
       ),
     );
   }
