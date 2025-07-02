@@ -1,12 +1,12 @@
 import 'package:get/get.dart';
 import 'package:practice_demo01/src/core/helper/helper_method.dart';
 import 'package:practice_demo01/src/features/home/data/model/product_model.dart';
-import 'package:practice_demo01/src/features/home/domain/usecases/product_usecase.dart';
+import 'package:practice_demo01/src/features/home/domain/usecases/home_usecase.dart';
 
 
 class HomeController extends GetxController{
 
-  final ProductUseCase productUseCase;
+  final HomeUseCase productUseCase;
 
   HomeController(this.productUseCase);
 

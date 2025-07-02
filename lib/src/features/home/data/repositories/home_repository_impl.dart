@@ -4,12 +4,12 @@ import 'package:dio/dio.dart';
 import 'package:practice_demo01/src/core/constants/api_constants.dart';
 import 'package:practice_demo01/src/core/helper/helper_method.dart';
 import 'package:practice_demo01/src/features/home/data/model/product_model.dart';
-import 'package:practice_demo01/src/features/home/domain/repositories/product_repository.dart';
+import 'package:practice_demo01/src/features/home/domain/repositories/home_repository.dart';
 
 
-class ProductRepositoryImpl extends ProductRepository{
+class HomeRepositoryImpl extends HomeRepository{
   final Dio dio;
-  ProductRepositoryImpl(this.dio);
+  HomeRepositoryImpl(this.dio);
 
   @override
   Future<List<ProductModel>> getProduct() async{

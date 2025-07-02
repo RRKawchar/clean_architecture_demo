@@ -1,50 +1,122 @@
-import 'package:json_annotation/json_annotation.dart';
+import '../../domain/entities/product_entity.dart'; // Import the domain entity
 
-import '../../../home/data/model/image_model.dart';
-import '../../../home/data/model/p_category.dart';
+class PModel extends ProductEntity {
+  const PModel({
+    required int id,
+    required String name,
+    required String slug,
+    required String permalink,
+    String? price,
+    String? regularPrice,
+    String? salePrice,
+    bool? onSale,
+    String? description,
+    String? shortDescription,
+    bool? inStock,
+    int? totalSales,
+    String? priceHtml,
+    List<ProductCategoryModel>? categories,
+    List<ProductImageModel>? images,
+  }) : super(
+    id: id,
+    name: name,
+    slug: slug,
+    permalink: permalink,
+    price: price,
+    regularPrice: regularPrice,
+    salePrice: salePrice,
+    onSale: onSale,
+    description: description,
+    shortDescription: shortDescription,
+    inStock: inStock,
+    totalSales: totalSales,
+    priceHtml: priceHtml,
+    categories: categories,
+    images: images,
+  );
 
-part 'p_model.g.dart';
+  factory PModel.fromJson(Map<String, dynamic> json) {
+    return PModel(
+      id: json['id'] as int,
+      name: json['name'] as String,
+      slug: json['slug'] as String,
+      permalink: json['permalink'] as String,
+      price: json['price'] as String?,
+      regularPrice: json['regular_price'] as String?,
+      salePrice: json['sale_price'] as String?,
+      onSale: json['on_sale'] as bool?,
+      description: json['description'] as String?,
+      shortDescription: json['short_description'] as String?,
+      inStock: json['in_stock'] as bool?,
+      totalSales: json['total_sales'] as int?,
+      priceHtml: json['price_html'] as String?,
+      categories: (json['categories'] as List<dynamic>?)
+          ?.map((e) => ProductCategoryModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      images: (json['images'] as List<dynamic>?)
+          ?.map((e) => ProductImageModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+  }
 
-@JsonSerializable(explicitToJson: true)
-class PModel{
-  final int id;
-  final String name;
-  final String slug;
-  final String permalink;
-  final String? price;
-  final String? regular_price;
-  final String? sale_price;
-  final bool? on_sale;
-  final String? description;
-  final String? short_description;
-  final bool? in_stock;
-  final int? total_sales;
-  final String? price_html;
-  final List<PCategory>? categories;
-  final List<ImageModel>? images;
+  // // Method to convert model to entity if needed, though often models directly extend entities.
+  // ProductEntity toEntity() {
+  //   return ProductEntity(
+  //     id: id,
+  //     name: name,
+  //     slug: slug,
+  //     permalink: permalink,
+  //     price: price,
+  //     regularPrice: regularPrice,
+  //     salePrice: salePrice,
+  //     onSale: onSale,
+  //     description: description,
+  //     shortDescription: shortDescription,
+  //     inStock: inStock,
+  //     totalSales: totalSales,
+  //     priceHtml: priceHtml,
+  //     categories: categories?.map((e) => e.toEntity()).toList(),
+  //     images: images?.map((e) => e.toEntity()).toList(),
+  //   );
+  // }
+}
 
+class ProductCategoryModel extends ProductCategory {
+  const ProductCategoryModel({
+    required int id,
+    required String name,
+    required String slug,
+  }) : super(id: id, name: name, slug: slug);
 
-  PModel({
-    required this.id,
-    required this.name,
-    required this.slug,
-    required this.permalink,
-    this.price,
-    this.regular_price,
-    this.sale_price,
-    this.on_sale,
-    this.description,
-    this.short_description,
-    this.in_stock,
-    this.total_sales,
-    this.price_html,
-    this.categories,
-    this.images,
-  });
+  factory ProductCategoryModel.fromJson(Map<String, dynamic> json) {
+    return ProductCategoryModel(
+      id: json['id'] as int,
+      name: json['name'] as String,
+      slug: json['slug'] as String,
+    );
+  }
 
+  ProductCategory toEntity() {
+    return ProductCategory(id: id, name: name, slug: slug);
+  }
+}
 
-  factory PModel.fromJson(Map<String, dynamic> json) =>
-      _$PModelFromJson(json);
-  Map<String, dynamic> toJson() => _$PModelToJson(this);
+class ProductImageModel extends ProductImage {
+  const ProductImageModel({
+    required int id,
+    required String src,
+    String? name,
+  }) : super(id: id, src: src, name: name);
 
+  factory ProductImageModel.fromJson(Map<String, dynamic> json) {
+    return ProductImageModel(
+      id: json['id'] as int,
+      src: json['src'] as String,
+      name: json['name'] as String?,
+    );
+  }
+
+  ProductImage toEntity() {
+    return ProductImage(id: id, src: src, name: name);
+  }
 }
