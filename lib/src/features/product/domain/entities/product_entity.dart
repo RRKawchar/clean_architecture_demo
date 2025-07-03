@@ -1,4 +1,4 @@
-import 'package:equatable/equatable.dart'; // Consider using equatable for value equality
+import 'package:equatable/equatable.dart';
 
 class ProductEntity extends Equatable {
   final int id;
@@ -75,7 +75,11 @@ class ProductImage extends Equatable {
   final String src;
   final String? name;
 
-  const ProductImage({required this.id, required this.src, this.name});
+  const ProductImage({
+    required this.id,
+    required this.src,
+    this.name,
+  });
 
   @override
   List<Object?> get props => [id, src, name];

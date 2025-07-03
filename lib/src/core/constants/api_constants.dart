@@ -7,4 +7,11 @@ class ApiConstants{
   static const String register = '$_baseUrl/users';
 
   static const String getProduct='$_baseUrlMF/wp-json/wc/v2/products';
+
+
+
+  static const String getAllUser='$_baseUrl/users';
+
+
+
 }
