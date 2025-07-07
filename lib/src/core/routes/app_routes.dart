@@ -18,6 +18,7 @@ class AppRoutes{
     GetPage(name: RoutesName.registerPage, page: ()=>RegisterPage()),
 
 
+
   ];
 
 

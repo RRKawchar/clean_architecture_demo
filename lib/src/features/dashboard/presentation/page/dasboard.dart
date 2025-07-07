@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:practice_demo01/src/features/dashboard/controller/dashboard_controller.dart';
 import 'package:practice_demo01/src/features/home/presentation/pages/home_page.dart';
 import 'package:practice_demo01/src/features/product/presentation/pages/product_page.dart';
+import 'package:practice_demo01/src/features/profile/presentation/pages/profile_page.dart';
 import 'package:practice_demo01/src/features/users/presentation/pages/users_page.dart';
 
 class DashBoard extends StatelessWidget {
@@ -11,7 +12,8 @@ class DashBoard extends StatelessWidget {
   final _pages=[
     HomePage(),
     ProductsPage(),
-    UsersPage()
+    UsersPage(),
+    ProfilePage()
   ];
 
   @override
@@ -24,6 +26,7 @@ class DashBoard extends StatelessWidget {
           currentIndex: controller.currentPage.value,
           onTap: controller.onChangePage,
           selectedItemColor: Colors.green,
+          unselectedItemColor: Colors.grey,
           selectedIconTheme: IconThemeData(
             size: 32
           ),
@@ -31,6 +34,7 @@ class DashBoard extends StatelessWidget {
             BottomNavigationBarItem(icon: Icon(Icons.home),label: ""),
             BottomNavigationBarItem(icon: Icon(Icons.add_chart_rounded),label: ""),
             BottomNavigationBarItem(icon: Icon(Icons.person),label: ""),
+            BottomNavigationBarItem(icon: Icon(Icons.settings),label: ""),
 
           ]
 
