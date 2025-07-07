@@ -58,7 +58,6 @@ class PModel extends ProductEntity {
           .toList(),
     );
   }
-
   // // Method to convert model to entity if needed, though often models directly extend entities.
   // ProductEntity toEntity() {
   //   return ProductEntity(

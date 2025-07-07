@@ -11,6 +11,7 @@ class ProductsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Products')),
+
       // body: Obx(() {
       //   if (controller.isLoading.value) {
       //     return Center(child: CircularProgressIndicator());
