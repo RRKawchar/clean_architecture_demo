@@ -6,8 +6,8 @@ class LoginUseCase{
 
   LoginUseCase(this.repository);
 
-  Future<LoginEntity> execute(String email,String password){
-    return repository.login(email, password);
+  Future<LoginEntity> execute(String email,String password)async{
+    return await repository.login(email, password);
   }
 
 }

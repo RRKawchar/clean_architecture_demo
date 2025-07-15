@@ -14,13 +14,14 @@ import '../../features/auth/domain/usecases/login_usecase.dart';
 import '../../features/auth/presentation/controllers/auth_controller.dart';
 import '../../features/home/data/repositories/home_repository_impl.dart';
 import '../../features/product/data/repositories/product_repository_impl.dart';
-import '../../features/product/domain/repositories/popular_product_repository.dart';
 import '../../features/product/domain/usecases/get_product_usecase.dart';
 
 class InitialBinding extends Bindings {
   @override
   void dependencies() {
-    final dio = NetworkModule.provideDio();
+     final dio = NetworkModule.provideDio();
+
+
     final repository = AuthRepositoryImpl(dio);
     final loginUseCase = LoginUseCase(repository);
     final registerUseCase = RegisterUseCase(repository);

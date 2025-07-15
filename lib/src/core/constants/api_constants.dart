@@ -1,18 +1,16 @@
+import 'package:practice_demo01/src/core/env/env.dart';
+
 class ApiConstants{
+  static final String login = '${Env.baseUrl}/users/login';
+  static final String register = '${Env.baseUrl}/users';
 
-  static const String _baseUrl = 'https://api.squarelimousine.com';
-  static const String _baseUrlMF = 'https://www.mffoodmart.com';
-
-  static const String login = '$_baseUrl/users/login';
-  static const String register = '$_baseUrl/users';
-
-  static const String getProduct='$_baseUrlMF/wp-json/wc/v2/products';
+  static String getProduct='${Env.mfUrl}/wp-json/wc/v2/products';
 
 
 
-  static const String getAllUser='$_baseUrl/users';
+  static final String getAllUser='${Env.baseUrl}/users';
 
-  static const String getPopularProduct='$_baseUrlMF/wp-json/wc/v3/products?orderby=popularity&per_page=14&page=1';
+  static final String getPopularProduct='${Env.mfUrl}/wp-json/wc/v3/products?orderby=popularity&per_page=14&page=1';
 
 
 

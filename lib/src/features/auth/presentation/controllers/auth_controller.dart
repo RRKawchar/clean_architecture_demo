@@ -2,6 +2,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:practice_demo01/src/core/constants/key_manager.dart';
+import 'package:practice_demo01/src/core/helper/helper_method.dart';
 import 'package:practice_demo01/src/core/routes/routes_name.dart';
 import 'package:practice_demo01/src/core/services/local_storage_service.dart';
 import 'package:practice_demo01/src/features/auth/domain/entities/login_entity.dart';
@@ -29,6 +30,7 @@ class AuthController extends GetxController{
     errorMessage.value = '';
 
     try {
+
       final result = await loginUseCase.execute(email, password);
 
       user.value = result;
